@@ -1,0 +1,7 @@
+version: '3'
+services:
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: scheduler

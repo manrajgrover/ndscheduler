@@ -1,0 +1,11 @@
+# Directories
+.ipynb_checkpoints/
+docker/
+
+# Documentation
+LICENSE.txt
+README.md
+
+# Development files
+.travis.yml
+*.egg-info

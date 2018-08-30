@@ -1,0 +1,17 @@
+FROM python:3.6-alpine
+
+MAINTAINER Manraj Singh <manrajsinghgrover@gmail.com>
+
+RUN pip install virtualenv
+
+ADD . /root
+WORKDIR /root
+
+RUN virtualenv /venv && \
+    source /venv/bin/activate && \
+    pip install -r ./scheduler/requirements.txt && \
+    pip install -e .
+
+RUN chmod 755 ./scripts/server.sh
+
+CMD ["./scripts/server.sh"]

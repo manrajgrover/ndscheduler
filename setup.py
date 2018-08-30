@@ -62,7 +62,6 @@ setup(
     name=PACKAGE,
     version=__version__,
     description='ndscheduler: A cron-replacement library from Nextdoor',
-    long_description=open('README.md').read(),
     author='Nextdoor Engineering',
     author_email='eng@nextdoor.com',
     url='https://github.com/Nextdoor/ndscheduler',

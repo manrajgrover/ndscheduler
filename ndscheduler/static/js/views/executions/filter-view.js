@@ -35,9 +35,17 @@ define(['backbone', 'bootstrap', 'moment'], function(backbone, bootstrap, moment
     filterTable: function(e) {
       e.preventDefault();
 
-      var range = parseInt($('#filter-time-range').val(), 10);
+      var range = $('#logs-filter-time-range').val();
+      var rangeVal;
+      var start;
+
+      if (range === '*') {
+        start = moment(new Date(0));
+      } else {
+        rangeVal = parseInt(range, 10);
+        start = moment().subtract(rangeVal, 'second');
+      }
       var end = moment();
-      var start = moment().subtract(range, 'second');
       this.collection.getExecutionsByRange(start.toISOString(),
           end.toISOString());
     }

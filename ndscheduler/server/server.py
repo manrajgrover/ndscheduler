@@ -35,7 +35,8 @@ class SchedulerServer:
             debug=settings.DEBUG,
             static_path=settings.STATIC_DIR_PATH,
             template_path=settings.TEMPLATE_DIR_PATH,
-            scheduler_manager=self.scheduler_manager
+            scheduler_manager=self.scheduler_manager,
+            xsrf_cookies=True,
         )
 
         # Setup server

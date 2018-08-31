@@ -1,5 +1,6 @@
 """Settings to override default settings."""
 
+import os
 import logging
 
 #
@@ -16,3 +17,14 @@ HTTP_ADDRESS = '0.0.0.0'
 logging.getLogger().setLevel(logging.DEBUG)
 
 JOB_CLASS_PACKAGES = ['scheduler.job_types']
+
+# MySQL Settings
+DATABASE_CLASS = 'ndscheduler.core.datastore.providers.mysql.DatastoreMysql'
+
+DATABASE_CONFIG_DICT = {
+    'user': 'root',
+    'password': '',
+    'hostname': '127.0.0.1',
+    'port': 3306,
+    'database': 'scheduler'
+}

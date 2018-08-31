@@ -12,6 +12,6 @@ RUN virtualenv /venv && \
     pip install -r ./scheduler/requirements.txt && \
     pip install .
 
-RUN chmod 755 ./scheduler/server.sh
+RUN chmod 755 ./scheduler/docker.sh
 
-CMD ["./scheduler/server.sh"]
+CMD ["./scheduler/docker.sh"]

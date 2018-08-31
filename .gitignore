@@ -117,3 +117,13 @@ dmypy.json
 
 ## SQLite
 *.db
+
+## Test Jobs
+jobs/
+
+## Settings
+scheduler/settings/*.py
+!scheduler/settings/*.sample.py
+
+## Scripts
+scripts/development.sh

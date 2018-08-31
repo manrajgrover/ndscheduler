@@ -35,7 +35,7 @@ define(['backbone', 'bootstrap', 'moment'], function(backbone, bootstrap, moment
     filterTable: function(e) {
       e.preventDefault();
 
-      var range = $('#logs-filter-time-range').val();
+      var range = $('#filter-time-range').val();
       var rangeVal;
       var start;
 

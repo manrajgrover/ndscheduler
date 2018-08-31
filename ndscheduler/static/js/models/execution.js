@@ -80,7 +80,8 @@ define(['config',
      * @return {string} scheduled time string.
      */
     getScheduledAtString: function() {
-      return moment(this.get('scheduled_time')).local().format(
+      var utc = moment.utc(this.get('scheduled_time')).toDate();
+      return moment(utc).local().format(
           'MM/DD/YYYY HH:mm:ss Z');
     },
 
@@ -90,7 +91,8 @@ define(['config',
      * @return {string} finished time string.
      */
     getFinishedAtString: function() {
-      return moment(this.get('updated_time')).local().format(
+      var utc = moment.utc(this.get('updated_time')).toDate();
+      return moment(utc).local().format(
           'MM/DD/YYYY HH:mm:ss Z');
     },
 
@@ -100,12 +102,12 @@ define(['config',
      * @return {string} html string for taskworker information.
      */
     getDescription: function() {
-        return this.get('description');
+      return this.get('description');
     },
 
     /**
      * Returns html string for execution result.
-     * 
+     *
      * @return {string} html string for execution result.
      */
     getResult: function() {

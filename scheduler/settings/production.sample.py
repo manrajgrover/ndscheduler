@@ -9,6 +9,7 @@ DEBUG = False
 
 HTTP_PORT = 1234
 HTTP_ADDRESS = '12.34.56.78'
+TIMEZONE = 'Asia/Kolkata'
 
 #
 # Set logging level

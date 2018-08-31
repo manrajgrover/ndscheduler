@@ -34,7 +34,7 @@ define(
       var buildAndPopulateResult = function(resultJSON) {
         var outputHTML = '';
         $.each(resultJSON, function(key, value) {
-          if (value !== undefined || value !== '') {
+          if (value !== undefined && value !== '') {
             outputHTML += '<h4>' + key + '</h4>';
             outputHTML += '<pre>' + value + '</pre>';
           }

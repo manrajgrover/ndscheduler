@@ -28,3 +28,5 @@ DATABASE_CONFIG_DICT = {
     'port': 1234,
     'database': ''
 }
+
+AUTHORIZED_EMAILS = []

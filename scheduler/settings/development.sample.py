@@ -29,3 +29,5 @@ DATABASE_CONFIG_DICT = {
     'port': 3306,
     'database': 'scheduler'
 }
+
+AUTHORIZED_EMAILS = []

@@ -20,6 +20,14 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def prepare(self):
         """Preprocess requests."""
+
+        try:
+            if self.request.headers['O2P-Email'] not in settings.AUTHORIZED_EMAILS:
+                raise tornado.web.HTTPError(403)
+        except KeyError:
+            raise tornado.web.HTTPError(403)
+
+
         try:
             if self.request.headers['Content-Type'].startswith('application/json'):
                 self.json_args = json.loads(self.request.body.decode())

@@ -82,7 +82,7 @@ define(['config',
     getScheduledAtString: function() {
       var utc = moment.utc(this.get('scheduled_time')).toDate();
       return moment(utc).local().format(
-          'MM/DD/YYYY HH:mm:ss Z');
+          'MM/DD/YYYY HH:mm:ss');
     },
 
     /**
@@ -93,7 +93,7 @@ define(['config',
     getFinishedAtString: function() {
       var utc = moment.utc(this.get('updated_time')).toDate();
       return moment(utc).local().format(
-          'MM/DD/YYYY HH:mm:ss Z');
+          'MM/DD/YYYY HH:mm:ss');
     },
 
     /**

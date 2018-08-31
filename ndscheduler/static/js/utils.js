@@ -112,11 +112,25 @@ define(['spin', 'noty'], function(Spinner) {
   };
 
   /**
+   * Check if given string is JSON or not
+   */
+  var isJSON = function (str) {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
    * Public functions
    */
   return {
     startSpinner: startSpinner,
     stopSpinner: stopSpinner,
+
+    isJSON: isJSON,
 
     alertSuccess: alertSuccess,
     alertError: alertError,

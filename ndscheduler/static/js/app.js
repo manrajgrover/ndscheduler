@@ -1,28 +1,3 @@
-require.config({
-  urlArgs: 'bust=' + cacheBuster,
-  baseUrl: '/static/js',
-  paths: {
-    'jquery': 'vendor/jquery',
-    'backbone': 'vendor/backbone',
-    'underscore': 'vendor/underscore',
-
-    'jobs-view': 'views/jobs/jobs-view',
-    'executions-view': 'views/executions/executions-view',
-    'logs-view': 'views/logs/logs-view',
-
-    'jobs-collection': 'models/jobs',
-    'executions-collection': 'models/executions',
-    'logs-collection': 'models/logs'
-  },
-
-  shim: {
-    'backbone': {
-      deps: ['underscore', 'jquery'],
-      exports: 'Backbone'
-    }
-  }
-});
-
 require(['jobs-view',
   'executions-view',
   'logs-view',

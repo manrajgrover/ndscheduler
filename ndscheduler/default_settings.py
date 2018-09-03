@@ -3,7 +3,6 @@
 import logging
 import os
 
-
 #
 # Development mode or production mode
 # If DEBUG is True, then auto-reload is enabled, i.e., when code is modified, server will be

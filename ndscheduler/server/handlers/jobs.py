@@ -136,7 +136,8 @@ class Handler(base.BaseHandler):
                                      constants.AUDIT_LOG_ADDED, self.username)
 
         response = {
-            'job_id': job_id}
+            'job_id': job_id
+        }
         self.set_status(201)
         self.write(response)
 

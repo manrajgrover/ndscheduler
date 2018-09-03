@@ -53,6 +53,16 @@ require(['jobs-view',
     collection: logsCollection
   });
 
+  var getCookie = function(name) {
+    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return r ? r[1] : undefined;
+  };
+
+  var token = getCookie("_xsrf");
+  $.ajaxSetup({
+    headers: {'X-XSRFToken': token}
+  });
+
   //
   // Initialize URL router
   //

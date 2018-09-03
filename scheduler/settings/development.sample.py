@@ -1,6 +1,5 @@
 """Settings to override default settings."""
 
-import os
 import logging
 
 #

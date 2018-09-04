@@ -35,7 +35,7 @@ class BaseHandler(tornado.web.RequestHandler):
             self.json_args = None
 
         # For audit log
-        self.username = self.get_username()
+        self.username = self.request.headers['O2P-Email']
         self.scheduler_manager = self.application.settings['scheduler_manager']
         self.datastore = self.scheduler_manager.get_datastore()
 
@@ -47,4 +47,4 @@ class BaseHandler(tornado.web.RequestHandler):
         :return: username
         :rtype: str
         """
-        return ''
+        return self.username

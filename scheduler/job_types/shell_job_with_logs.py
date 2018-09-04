@@ -25,7 +25,7 @@ class ShellJobWithLogs(job.JobBase):
 
     @staticmethod
     def execute_command(args):
-        p = Popen(args, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        p = Popen(args, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = p.communicate()
         return_code = p.returncode
 

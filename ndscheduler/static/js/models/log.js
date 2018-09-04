@@ -70,8 +70,8 @@ define(['config',
      * @return {string} event time string.
      */
     getEventTimeString: function() {
-      var createdAt = this.get('created_time');
-      return moment(createdAt).format('MM/DD/YYYY HH:mm:ss Z');
+      var utc = moment.utc(this.get('created_time')).toDate();
+      return moment(utc).local().format('MM/DD/YYYY HH:mm:ss');
     },
 
     /**

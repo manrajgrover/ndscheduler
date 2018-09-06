@@ -7,9 +7,9 @@ services:
     image: scheduler:prod
     environment:
       - NDSCHEDULER_SETTINGS_MODULE=scheduler.settings.production
-      - R_LIBS_USER=/root/R/
+      - R_LIBS_USER=/R
     ports:
       - "8991:8991"
     volumes:
       - /home/ubuntu/code:/root/
-      - ~/R/:/root/R/
+      - ~/R/:/R/

@@ -1,6 +1,5 @@
 """A job to run executable programs."""
 import logging
-import base64
 
 from subprocess import Popen, PIPE
 
@@ -28,6 +27,10 @@ class ShellJobWithLogs(job.JobBase):
         p = Popen(args, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = p.communicate()
         return_code = p.returncode
+
+        logger.debug("stdout: {}".format(stdout))
+        logger.debug("stderr: {}".format(stderr))
+        logger.debug("return_code: {}".format(return_code))
 
         return stdout.decode('utf-8'), stderr.decode('utf-8'), return_code
 

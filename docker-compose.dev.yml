@@ -4,8 +4,12 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile-dev
-    image: scheduler-dev
+    image: scheduler:dev
+    environment:
+      - NDSCHEDULER_SETTINGS_MODULE=scheduler.settings.development
+      - R_LIBS_USER=/root/R/
     ports:
       - "8991:8888"
     volumes:
-        - .:/root
+      - .:/root/ndscheduler
+      - ~/R/:/root/R/

@@ -1,15 +1,7 @@
 #!/bin/bash
 
-# Install virtualenv
-pip install virtualenv
-
-# Install dependencies and run scheduler server
 (
-    cd .. && \
-    rm -rf venv && \
-    virtualenv venv && \
-    pip install -r ./scheduler/requirements.txt && \
-    pip install . && \
+    cd /home/ubuntu/code/scheduler && \
     NDSCHEDULER_SETTINGS_MODULE=scheduler.settings.production \
-    python ./scheduler/scheduler.py
+    /home/ubuntu/code/scheduler/venv/bin/python /home/ubuntu/code/scheduler/scheduler/scheduler.py
 )

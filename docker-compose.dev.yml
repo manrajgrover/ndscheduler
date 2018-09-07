@@ -8,6 +8,7 @@ services:
     environment:
       - NDSCHEDULER_SETTINGS_MODULE=scheduler.settings.development
       - R_LIBS_USER=/root/R/
+    restart: unless-stopped
     ports:
       - "8991:8888"
     volumes:

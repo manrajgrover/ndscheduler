@@ -41,6 +41,20 @@ RUN virtualenv /venv && \
 
 RUN chmod 755 ./scripts/docker.sh
 
+# CRON Specific dependencies
+
+## R
+RUN apt-get update && \
+    apt-get install -y libpq-dev libmysqlclient-dev
+
+# Clean up commands
+RUN rm -rf /root/.cache/pip/* && \
+    apt-get autoremove -y && apt-get clean && \
+    rm -rf /usr/local/src/*
+
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 EXPOSE 8888
 
 CMD ["/root/ndscheduler/scripts/docker.sh"]

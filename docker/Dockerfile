@@ -39,6 +39,20 @@ RUN virtualenv /venv && \
     pip install -r ./scheduler/requirements.txt && \
     pip install -e .
 
+# CRON Specific dependencies
+
+## R
+RUN apt-get update && \
+    apt-get install -y libpq-dev libmysqlclient-dev
+
+# Clean up commands
+RUN rm -rf /root/.cache/pip/* && \
+    apt-get autoremove -y && apt-get clean && \
+    rm -rf /usr/local/src/*
+
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN chmod 755 ./scripts/docker.sh
 
 EXPOSE 8888

@@ -14,13 +14,17 @@
     <link href="static/css/vendor/jquery.dataTables.css" rel="stylesheet" type="text/css">
     <link href="static/css/vendor/select2.css" rel="stylesheet" type="text/css">
     <link href="static/css/vendor/select2-bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="static/css/main.css" rel="stylesheet" type="text/css">
 
     <script>
-        var DEFAULT_CACHE_BUSTER = (new Date()).getTime();
-        // DEFAULT_CACHE_BUSTER will be replaced with a release token by the
-        // build script. cacheBuster is used by requirejs.
-        cacheBuster = DEFAULT_CACHE_BUSTER;
+        cacheBuster = '1.0.0';
+
+        var cssURL = 'static/css/main.css?ver=' + cacheBuster;
+        var cssElement = document.createElement('link');
+
+        cssElement.setAttribute('rel', 'stylesheet');
+        cssElement.setAttribute('type', 'text/css');
+        cssElement.setAttribute('href', cssURL);
+        document.getElementsByTagName("head")[0].appendChild(cssElement);
     </script>
 </head>
 <body>

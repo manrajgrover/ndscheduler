@@ -14,7 +14,7 @@ TIMEZONE = 'Asia/Kolkata'
 #
 # Set logging level
 #
-logging.getLogger().setLevel(logging.DEBUG)
+logging.getLogger().setLevel(logging.INFO)
 
 JOB_CLASS_PACKAGES = ['scheduler.job_types']
 

@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/' -y && \
     apt-get update && \
-    apt-get install -y r-base libcurl4-gnutls-dev libxml2-dev libssl-dev
+    apt-get install -y r-base libcurl4-gnutls-dev libxml2-dev libssl-dev default-jre default-jdk
 
 
 # Install Python 3.6

@@ -7,23 +7,22 @@ from ndscheduler import job
 
 logger = logging.getLogger(__file__)
 
-class ShellJobWithLogs(job.JobBase):
+class RedashEmailSummary(job.JobBase):
 
     @classmethod
     def meta_info(cls):
         return {
             'job_class_string': '%s.%s' % (cls.__module__, cls.__name__),
-            'notes': ('This will run an executable program. You can specify as many '
-                      'arguments as you want. This job will pass these arguments to the '
-                      'program in order.'),
-            'arguments': [
+            'arguments':[
                 {'type': 'string', 'description': 'Executable path'}
             ],
-            'example_arguments': '["/usr/local/my_program", "--file", "/tmp/abc", "--mode", "safe"]'
+            'notes': ('This will send scheduled email alerts for your redash query'),
+            'example_arguments': '["-q 5326 -e sandeep.pandey@practo.com,gautam.vij@practo.com"]'
         }
 
     @staticmethod
     def execute_command(args):
+        args = "cd /redash-summary/ && /redash-summary/venv/bin/python send_email.py " + args[0]
         p = Popen(args, stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
         stdout, stderr = p.communicate()
         return_code = p.returncode

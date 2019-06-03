@@ -34,6 +34,9 @@ ARG SCHEDULER_PATH=/root/ndscheduler
 ADD . $SCHEDULER_PATH
 WORKDIR $SCHEDULER_PATH
 
+RUN apt-get update && \
+    apt-get install -y libpq-dev libmysqlclient-dev
+
 RUN virtualenv /venv && \
     . /venv/bin/activate && \
     pip install -r ./scheduler/requirements.txt && \
@@ -42,8 +45,8 @@ RUN virtualenv /venv && \
 # CRON Specific dependencies
 
 ## R
-RUN apt-get update && \
-    apt-get install -y libpq-dev libmysqlclient-dev
+#RUN apt-get update && \
+#    apt-get install -y libpq-dev libmysqlclient-dev
 
 # Clean up commands
 RUN rm -rf /root/.cache/pip/* && \
